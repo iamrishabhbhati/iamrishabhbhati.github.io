@@ -37,19 +37,26 @@
         var container = document.getElementById('stars');
         if (!container) return;
 
-        var count = 60;
+        var count = 80;
 
         for (var i = 0; i < count; i++) {
             var star = document.createElement('div');
             star.className = 'star';
 
-            /* Randomise each star's appearance and timing */
-            var size = (Math.random() * 2 + 0.5).toFixed(2);
+            /* Every 5th star is brighter and larger */
+            var isBright = (i % 5 === 0);
+            if (isBright) star.classList.add('star--bright');
+
+            var size = isBright
+                ? (Math.random() * 2.5 + 2).toFixed(2)
+                : (Math.random() * 2 + 0.8).toFixed(2);
             var left = (Math.random() * 100).toFixed(2);
-            var duration = (Math.random() * 12 + 6).toFixed(2);
-            var delay = (Math.random() * 15).toFixed(2);
-            var drift = ((Math.random() - 0.5) * 40).toFixed(2);
-            var brightness = (Math.random() * 0.35 + 0.1).toFixed(2);
+            var duration = (Math.random() * 8 + 4).toFixed(2);
+            var delay = (Math.random() * 12).toFixed(2);
+            var drift = ((Math.random() - 0.5) * 30).toFixed(2);
+            var brightness = isBright
+                ? (Math.random() * 0.3 + 0.6).toFixed(2)
+                : (Math.random() * 0.3 + 0.25).toFixed(2);
 
             star.style.left = left + '%';
             star.style.setProperty('--size', size + 'px');
