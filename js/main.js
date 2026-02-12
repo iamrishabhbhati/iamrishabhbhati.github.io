@@ -1,301 +1,329 @@
 /*
  * main.js — Rishabh Bhati Portfolio
- *
- * Handles:
- *   - Falling stars background
- *   - Navbar scroll behaviour
- *   - Mobile menu toggle
- *   - Typing effect on hero
- *   - Scroll-triggered reveal animations
- *   - Project filters (projects.html)
- *   - Blog search (blog.html)
+ * Modern ES6+ implementation
  */
 
-(function () {
-    'use strict';
+'use strict';
 
-    document.addEventListener('DOMContentLoaded', function () {
-        createStars();
-        initNavbar();
-        initMobileMenu();
-        initTypingEffect();
-        initScrollReveal();
-        initProjectFilters();
-        initBlogSearch();
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    new CanvasBackground();
+    new Navbar();
+    new MobileMenu();
+    new TypingEffect();
+    new ScrollReveal();
+    new ProjectFilters();
+    new BlogSearch();
+});
 
+/* -------------------------------------------------------
+   Canvas Background
+   Floating particles with constellation effect (lines).
+   Premium, subtle, and lightweight.
+   ------------------------------------------------------- */
+class CanvasBackground {
+    constructor() {
+        this.canvas = document.getElementById('canvas-bg');
+        if (!this.canvas) return;
 
-    /* -------------------------------------------------------
-       Falling Stars
-       Creates small dot elements inside #stars container.
-       Each star gets random position, size, speed, and drift
-       via CSS custom properties. CSS @keyframes handles the
-       actual animation — this keeps things performant.
-       ------------------------------------------------------- */
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.count = 60; // Number of particles
+        this.connectionDist = 140; // Max distance to draw lines
 
-    function createStars() {
-        var container = document.getElementById('stars');
-        if (!container) return;
+        // Resize observer for responsive canvas
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
 
-        var count = 80;
+        // Create particles
+        this.initParticles();
 
-        for (var i = 0; i < count; i++) {
-            var star = document.createElement('div');
-            star.className = 'star';
-
-            /* Every 5th star is brighter and larger */
-            var isBright = (i % 5 === 0);
-            if (isBright) star.classList.add('star--bright');
-
-            var size = isBright
-                ? (Math.random() * 2.5 + 2).toFixed(2)
-                : (Math.random() * 2 + 0.8).toFixed(2);
-            var left = (Math.random() * 100).toFixed(2);
-            var duration = (Math.random() * 8 + 4).toFixed(2);
-            var delay = (Math.random() * 12).toFixed(2);
-            var drift = ((Math.random() - 0.5) * 30).toFixed(2);
-            var brightness = isBright
-                ? (Math.random() * 0.3 + 0.6).toFixed(2)
-                : (Math.random() * 0.3 + 0.25).toFixed(2);
-
-            star.style.left = left + '%';
-            star.style.setProperty('--size', size + 'px');
-            star.style.setProperty('--fall-duration', duration + 's');
-            star.style.setProperty('--delay', delay + 's');
-            star.style.setProperty('--drift', drift + 'px');
-            star.style.setProperty('--brightness', brightness);
-
-            container.appendChild(star);
-        }
+        // Start loop
+        this.animate();
     }
 
-
-    /* -------------------------------------------------------
-       Navbar
-       Adds a blurred background and border on scroll.
-       Also highlights the active nav link based on which
-       section is currently in view.
-       ------------------------------------------------------- */
-
-    function initNavbar() {
-        var nav = document.getElementById('nav');
-        if (!nav) return;
-
-        /* Only add scroll class on homepage (sub-pages have it by default) */
-        var isHomepage = !nav.classList.contains('scrolled');
-
-        if (isHomepage) {
-            var handleScroll = function () {
-                if (window.scrollY > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
-            };
-
-            window.addEventListener('scroll', handleScroll, { passive: true });
-            handleScroll();
-        }
-
-        /* Highlight active section in nav */
-        var sections = document.querySelectorAll('section[id]');
-        var links = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-        if (sections.length && links.length) {
-            window.addEventListener('scroll', function () {
-                var current = '';
-                for (var i = 0; i < sections.length; i++) {
-                    if (window.scrollY >= sections[i].offsetTop - 120) {
-                        current = sections[i].getAttribute('id');
-                    }
-                }
-                for (var j = 0; j < links.length; j++) {
-                    links[j].classList.toggle(
-                        'active',
-                        links[j].getAttribute('href') === '#' + current
-                    );
-                }
-            }, { passive: true });
-        }
+    resize() {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
     }
 
-
-    /* -------------------------------------------------------
-       Mobile Menu
-       Toggles the nav-menu on small screens.
-       ------------------------------------------------------- */
-
-    function initMobileMenu() {
-        var toggle = document.getElementById('navToggle');
-        var menu = document.getElementById('navMenu');
-        if (!toggle || !menu) return;
-
-        toggle.addEventListener('click', function () {
-            toggle.classList.toggle('open');
-            menu.classList.toggle('open');
-        });
-
-        /* Close menu when a link is tapped */
-        var links = menu.querySelectorAll('a');
-        for (var i = 0; i < links.length; i++) {
-            links[i].addEventListener('click', function () {
-                toggle.classList.remove('open');
-                menu.classList.remove('open');
+    initParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.count; i++) {
+            this.particles.push({
+                x: Math.random() * this.width,
+                y: Math.random() * this.height,
+                vx: (Math.random() - 0.5) * 0.4, // ultra slow velocity
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.5 + 0.5,
+                alpha: Math.random() * 0.5 + 0.1,
+                // Pulse capability
+                pulseSpeed: 0.02,
+                growing: Math.random() > 0.5
             });
         }
     }
 
+    animate() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
 
-    /* -------------------------------------------------------
-       Typing Effect
-       Cycles through role strings on the hero.
-       Types one character at a time, pauses, deletes, repeats.
-       ------------------------------------------------------- */
+        // Update and draw particles
+        this.particles.forEach((p, index) => {
+            // Movement
+            p.x += p.vx;
+            p.y += p.vy;
 
-    function initTypingEffect() {
-        var el = document.getElementById('typed');
-        if (!el) return;
+            // Wrap around edges
+            if (p.x < 0) p.x = this.width;
+            if (p.x > this.width) p.x = 0;
+            if (p.y < 0) p.y = this.height;
+            if (p.y > this.height) p.y = 0;
 
-        var roles = [
+            // Pulse alpha for "twinkle"
+            if (p.growing) {
+                p.alpha += p.pulseSpeed;
+                if (p.alpha >= 0.8) p.growing = false;
+            } else {
+                p.alpha -= p.pulseSpeed;
+                if (p.alpha <= 0.1) p.growing = true;
+            }
+
+            // Draw particle
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+            this.ctx.fill();
+
+            // Draw connections
+            for (let j = index + 1; j < this.particles.length; j++) {
+                const p2 = this.particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < this.connectionDist) {
+                    // Opacity based on distance
+                    const opacity = 1 - (dist / this.connectionDist);
+                    this.ctx.beginPath();
+                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.15})`; // Very subtle lines
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.moveTo(p.x, p.y);
+                    this.ctx.lineTo(p2.x, p2.y);
+                    this.ctx.stroke();
+                }
+            }
+        });
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+
+/* -------------------------------------------------------
+   Navbar
+   ------------------------------------------------------- */
+class Navbar {
+    constructor() {
+        this.nav = document.getElementById('nav');
+        if (!this.nav) return;
+
+        this.isHomepage = !this.nav.classList.contains('scrolled');
+        this.sections = document.querySelectorAll('section[id]');
+        this.links = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        if (this.isHomepage) {
+            window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
+            this.handleScroll(); // Init check
+        }
+
+        if (this.sections.length && this.links.length) {
+            window.addEventListener('scroll', () => this.highlightLink(), { passive: true });
+        }
+    }
+
+    handleScroll() {
+        if (window.scrollY > 50) {
+            this.nav.classList.add('scrolled');
+        } else {
+            this.nav.classList.remove('scrolled');
+        }
+    }
+
+    highlightLink() {
+        let current = '';
+        this.sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 120) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        this.links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+        });
+    }
+}
+
+
+/* -------------------------------------------------------
+   Mobile Menu
+   ------------------------------------------------------- */
+class MobileMenu {
+    constructor() {
+        this.toggle = document.getElementById('navToggle');
+        this.menu = document.getElementById('navMenu');
+        if (!this.toggle || !this.menu) return;
+
+        this.toggle.addEventListener('click', () => {
+            this.toggle.classList.toggle('open');
+            this.menu.classList.toggle('open');
+        });
+
+        this.menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                this.toggle.classList.remove('open');
+                this.menu.classList.remove('open');
+            });
+        });
+    }
+}
+
+
+/* -------------------------------------------------------
+   Typing Effect
+   ------------------------------------------------------- */
+class TypingEffect {
+    constructor() {
+        this.el = document.getElementById('typed');
+        if (!this.el) return;
+
+        this.roles = [
             'Data Analyst',
             'Dashboard Builder',
             'SQL Enthusiast',
             'MSc Data Science Student'
         ];
+        this.roleIdx = 0;
+        this.charIdx = 0;
+        this.deleting = false;
+        this.speed = 80;
 
-        var roleIdx = 0;
-        var charIdx = 0;
-        var deleting = false;
-        var speed = 80;
-
-        function tick() {
-            var word = roles[roleIdx];
-
-            if (deleting) {
-                charIdx--;
-                speed = 40;
-            } else {
-                charIdx++;
-                speed = 80;
-            }
-
-            el.textContent = word.substring(0, charIdx);
-
-            if (!deleting && charIdx === word.length) {
-                speed = 2000; /* pause at full word */
-                deleting = true;
-            } else if (deleting && charIdx === 0) {
-                deleting = false;
-                roleIdx = (roleIdx + 1) % roles.length;
-                speed = 400;
-            }
-
-            setTimeout(tick, speed);
-        }
-
-        tick();
+        this.tick();
     }
 
+    tick() {
+        const word = this.roles[this.roleIdx];
 
-    /* -------------------------------------------------------
-       Scroll Reveal
-       Fades in elements with the .reveal class when they
-       enter the viewport. Uses IntersectionObserver for
-       performance; falls back to showing everything if
-       the API isn't supported.
-       ------------------------------------------------------- */
+        if (this.deleting) {
+            this.charIdx--;
+            this.speed = 40;
+        } else {
+            this.charIdx++;
+            this.speed = 80;
+        }
 
-    function initScrollReveal() {
-        var items = document.querySelectorAll('.reveal');
-        if (!items.length) return;
+        this.el.textContent = word.substring(0, this.charIdx);
+
+        if (!this.deleting && this.charIdx === word.length) {
+            this.speed = 2000;
+            this.deleting = true;
+        } else if (this.deleting && this.charIdx === 0) {
+            this.deleting = false;
+            this.roleIdx = (this.roleIdx + 1) % this.roles.length;
+            this.speed = 400;
+        }
+
+        setTimeout(() => this.tick(), this.speed);
+    }
+}
+
+
+/* -------------------------------------------------------
+   Scroll Reveal
+   ------------------------------------------------------- */
+class ScrollReveal {
+    constructor() {
+        this.items = document.querySelectorAll('.reveal');
+        if (!this.items.length) return;
 
         if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function (entries) {
-                for (var i = 0; i < entries.length; i++) {
-                    if (entries[i].isIntersecting) {
-                        entries[i].target.classList.add('visible');
-                        observer.unobserve(entries[i].target);
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        this.observer.unobserve(entry.target);
                     }
-                }
+                });
             }, { threshold: 0.1 });
 
-            for (var i = 0; i < items.length; i++) {
-                observer.observe(items[i]);
-            }
+            this.items.forEach(item => this.observer.observe(item));
         } else {
-            for (var i = 0; i < items.length; i++) {
-                items[i].classList.add('visible');
-            }
+            // Fallback
+            this.items.forEach(item => item.classList.add('visible'));
         }
     }
+}
 
 
-    /* -------------------------------------------------------
-       Project Filters (projects.html)
-       Shows/hides project cards based on the data-category
-       attribute. "all" shows everything.
-       ------------------------------------------------------- */
+/* -------------------------------------------------------
+   Project Filters
+   ------------------------------------------------------- */
+class ProjectFilters {
+    constructor() {
+        this.buttons = document.querySelectorAll('.filter-btn');
+        this.cards = document.querySelectorAll('.project-card[data-category]');
+        if (!this.buttons.length || !this.cards.length) return;
 
-    function initProjectFilters() {
-        var buttons = document.querySelectorAll('.filter-btn');
-        var cards = document.querySelectorAll('.project-card[data-category]');
-        if (!buttons.length || !cards.length) return;
-
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', (function (btn) {
-                return function () {
-                    /* Update active button */
-                    for (var j = 0; j < buttons.length; j++) {
-                        buttons[j].classList.remove('active');
-                    }
-                    btn.classList.add('active');
-
-                    var filter = btn.getAttribute('data-filter');
-
-                    for (var k = 0; k < cards.length; k++) {
-                        var match = filter === 'all' ||
-                            cards[k].getAttribute('data-category').indexOf(filter) > -1;
-
-                        cards[k].style.display = match ? '' : 'none';
-
-                        if (match) {
-                            cards[k].style.opacity = '0';
-                            cards[k].style.transform = 'translateY(10px)';
-                            /* Trigger reflow, then animate in */
-                            (function (card) {
-                                setTimeout(function () {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, 30);
-                            })(cards[k]);
-                        }
-                    }
-                };
-            })(buttons[i]));
-        }
-    }
-
-
-    /* -------------------------------------------------------
-       Blog Search (blog.html)
-       Filters blog cards by matching the search query
-       against the data-title attribute.
-       ------------------------------------------------------- */
-
-    function initBlogSearch() {
-        var input = document.getElementById('blogSearch');
-        var cards = document.querySelectorAll('.blog-card[data-title]');
-        if (!input || !cards.length) return;
-
-        input.addEventListener('input', function () {
-            var query = input.value.toLowerCase().trim();
-
-            for (var i = 0; i < cards.length; i++) {
-                var title = cards[i].getAttribute('data-title').toLowerCase();
-                cards[i].style.display = (query === '' || title.indexOf(query) > -1)
-                    ? '' : 'none';
-            }
+        this.buttons.forEach(btn => {
+            btn.addEventListener('click', () => this.filter(btn));
         });
     }
 
-})();
+    filter(btn) {
+        this.buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        this.cards.forEach(card => {
+            const match = filter === 'all' || card.getAttribute('data-category').includes(filter);
+
+            if (match) {
+                card.style.display = '';
+                // Small fade-in animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 30);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+}
+
+
+/* -------------------------------------------------------
+   Blog Search
+   ------------------------------------------------------- */
+class BlogSearch {
+    constructor() {
+        this.input = document.getElementById('blogSearch');
+        this.cards = document.querySelectorAll('.blog-card[data-title]');
+        if (!this.input || !this.cards.length) return;
+
+        this.input.addEventListener('input', () => this.search());
+    }
+
+    search() {
+        const query = this.input.value.toLowerCase().trim();
+
+        this.cards.forEach(card => {
+            const title = card.getAttribute('data-title').toLowerCase();
+            card.style.display = (query === '' || title.includes(query)) ? '' : 'none';
+        });
+    }
+}
