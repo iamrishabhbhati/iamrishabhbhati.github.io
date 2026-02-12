@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Approach Exploratory Data Analysis — Rishabh Bhati</title>
+    <meta name="description"
+        content="My step-by-step EDA process — from loading the data to actually understanding what's going on in it.">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="stars-container" id="stars" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <nav class="nav scrolled" id="nav">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">rishabh<span>.</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="article">
+        <a href="../blog.html" class="article-back">← Back to blog</a>
+
+        <header>
+            <h1>How I Approach Exploratory Data Analysis</h1>
+            <div class="article-meta">
+                <span>Feb 12, 2026</span>
+                <span>·</span>
+                <span>6 min read</span>
+                <span>·</span>
+                <span>EDA, Data Analysis</span>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <p>
+                Every time I get a new dataset, the first thing I want to do is just look at
+                it. Not build any model, not write any report — just <strong>understand what
+                    I'm working with</strong>. That's essentially what EDA is, and over time I've
+                built a process that works for me.
+            </p>
+
+            <h2>Step 1 — Load it and look at it</h2>
+            <p>
+                Sounds obvious, but I always start by printing the first few rows and checking
+                the shape of the data. How many rows? How many columns? What are the column
+                names? This gives me a quick mental map.
+            </p>
+            <pre><code>import pandas as pd
+
+df = pd.read_csv('data.csv')
+print(df.shape)
+df.head()</code></pre>
+
+            <h2>Step 2 — Check for the usual problems</h2>
+            <p>
+                Missing values, weird data types, duplicate rows — the usual stuff. I check
+                for all of this early because it affects everything you do later. There's nothing
+                worse than building a chart and realising halfway that half the column is null.
+            </p>
+            <pre><code>df.info()
+df.isnull().sum()
+df.duplicated().sum()</code></pre>
+
+            <h2>Step 3 — Understand the distributions</h2>
+            <p>
+                For numeric columns, I check the spread — mean, median, min, max, standard
+                deviation. For categorical columns, I look at value counts. The goal is to see
+                if anything looks off or surprising.
+            </p>
+
+            <blockquote>
+                If a column has 95% of its values as the same thing, it's probably not going
+                to be very useful.
+            </blockquote>
+
+            <h2>Step 4 — Visualise</h2>
+            <p>
+                This is where things get interesting. Histograms for distributions, scatter
+                plots for relationships, box plots for outliers. I don't try to make them
+                pretty at this stage — that comes later. Right now I just want to <strong>see
+                    patterns</strong>.
+            </p>
+
+            <h2>Step 5 — Write down what you found</h2>
+            <p>
+                This is the step most people skip, and it's probably the most important one.
+                After doing all the above, I write 3-5 bullet points about what I noticed.
+                Things like "Sales peak in December," or "There's a weird spike in
+                returns for Category X." These notes become the foundation for whatever
+                analysis or report comes next.
+            </p>
+
+            <h2>That's basically it</h2>
+            <p>
+                EDA isn't complicated — it's just about being curious and systematic. The
+                more datasets you explore, the faster you get at spotting what matters.
+                Hope this helps if you're just getting started.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Rishabh Bhati</p>
+            <div class="footer-socials">
+                <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

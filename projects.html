@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Rishabh Bhati</title>
+    <meta name="description"
+        content="Data analysis projects by Rishabh Bhati — dashboards, SQL queries, EDA notebooks, and more.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="stars-container" id="stars" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <nav class="nav scrolled" id="nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">rishabh<span>.</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container page-header">
+            <span class="section-label">Projects</span>
+            <h1 class="section-heading">My Projects</h1>
+            <p class="section-desc">
+                This is where I'll share the data projects I work on — dashboards,
+                analyses, SQL deep dives, and anything else interesting. Stay tuned.
+            </p>
+
+            <!-- Filters — uncomment when you have projects to filter
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="analysis">Data Analysis</button>
+        <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+        <button class="filter-btn" data-filter="sql">SQL</button>
+      </div>
+      -->
+        </div>
+
+        <div class="container" style="padding-bottom:100px;">
+            <div class="projects-grid" id="projectsGrid">
+
+                <!--
+          Projects will be added here. Each project follows this structure:
+
+          <div class="project-card" data-category="analysis sql">
+            <div class="project-thumb">
+              <img src="images/project-name.jpg" alt="Project Title">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">Excel</span>
+              </div>
+              <h3><a href="#">Project Title</a></h3>
+              <p>Short description of the project.</p>
+              <div class="project-links">
+                <a href="https://github.com/iamrishabhbhati/repo" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </div>
+        -->
+
+                <!-- Empty state — remove this div once you add projects -->
+                <div class="empty-state" style="grid-column: 1 / -1;">
+                    <p>🚧 Projects coming soon. Check back later.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Rishabh Bhati</p>
+            <div class="footer-socials">
+                <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
