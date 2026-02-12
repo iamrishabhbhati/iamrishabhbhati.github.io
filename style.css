@@ -5,8 +5,8 @@
 :root {
     --bg: #0a0a1a;
     --bg-alt: #101028;
-    --bg-card: #14142e;
-    --bg-card-hover: #1a1a3e;
+    --bg-card: #151535;
+    --bg-card-hover: #1c1c42;
 
     --accent: #4fc3f7;
     --accent-glow: rgba(79, 195, 247, .2);
@@ -17,7 +17,7 @@
     --text-muted: #7e7e9a;
     --white: #ffffff;
 
-    --border: rgba(255, 255, 255, .07);
+    --border: rgba(255, 255, 255, .10);
     --grid-line: rgba(255, 255, 255, .03);
 
     --radius: 10px;
@@ -287,21 +287,6 @@ section {
     box-shadow: 0 4px 16px var(--accent-glow);
 }
 
-.social-row--lg .social-icon {
-    width: 52px;
-    height: 52px;
-}
-
-.social-row--sm {
-    gap: 10px;
-}
-
-.social-icon--sm {
-    width: 34px;
-    height: 34px;
-    border: none;
-}
-
 /* ═══════════ ABOUT ═══════════ */
 #about {
     background: var(--bg-alt);
@@ -388,7 +373,7 @@ section {
 .edu-card:hover {
     border-color: var(--accent);
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .4);
 }
 
 .edu-badge {
@@ -429,7 +414,7 @@ section {
     color: var(--text-muted);
     font-family: var(--mono);
     margin-top: auto;
-    padding-top: 6px;
+    padding-top: 8px;
     border-top: 1px solid var(--border);
 }
 
@@ -467,11 +452,11 @@ section {
     text-align: center;
 }
 
-.contact-text {
-    color: var(--text-muted);
-    font-size: .95rem;
-    margin-bottom: 28px;
-    text-align: center;
+.contact-email {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    letter-spacing: -0.01em;
 }
 
 /* ═══════════ FOOTER ═══════════ */
@@ -480,15 +465,10 @@ section {
     z-index: 1;
     padding: 24px 20px;
     border-top: 1px solid var(--border);
+    text-align: center;
 }
 
-.footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.footer-inner p {
+#footer p {
     color: var(--text-muted);
     font-size: .8rem;
 }
@@ -662,11 +642,6 @@ section {
 
     .projects-empty {
         padding: 36px 16px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        gap: 12px;
     }
 }
 
