@@ -37,33 +37,28 @@
         var container = document.getElementById('stars');
         if (!container) return;
 
-        var count = 80;
+        var count = 40; // Fewer but more impactful meteors
 
         for (var i = 0; i < count; i++) {
             var star = document.createElement('div');
             star.className = 'star';
 
-            /* Every 5th star is brighter and larger */
-            var isBright = (i % 5 === 0);
+            /* Every 4th star is a bright bolide */
+            var isBright = (i % 4 === 0);
             if (isBright) star.classList.add('star--bright');
 
-            var size = isBright
-                ? (Math.random() * 2.5 + 2).toFixed(2)
-                : (Math.random() * 2 + 0.8).toFixed(2);
-            var left = (Math.random() * 100).toFixed(2);
-            var duration = (Math.random() * 8 + 4).toFixed(2);
-            var delay = (Math.random() * 12).toFixed(2);
-            var drift = ((Math.random() - 0.5) * 30).toFixed(2);
-            var brightness = isBright
-                ? (Math.random() * 0.3 + 0.6).toFixed(2)
-                : (Math.random() * 0.3 + 0.25).toFixed(2);
+            var trailLength = isBright
+                ? (Math.random() * 150 + 250).toFixed(0) // 250-400px
+                : (Math.random() * 100 + 100).toFixed(0); // 100-200px
 
-            star.style.left = left + '%';
-            star.style.setProperty('--size', size + 'px');
+            var leftStart = (Math.random() * 150 - 25).toFixed(2); // Start from -25% to 125% width
+            var duration = (Math.random() * 4 + 2).toFixed(2); // 2-6s fast
+            var delay = (Math.random() * 10).toFixed(2);
+
+            star.style.setProperty('--trail-length', trailLength + 'px');
+            star.style.setProperty('--left-start', leftStart + 'vw');
             star.style.setProperty('--fall-duration', duration + 's');
             star.style.setProperty('--delay', delay + 's');
-            star.style.setProperty('--drift', drift + 'px');
-            star.style.setProperty('--brightness', brightness);
 
             container.appendChild(star);
         }
