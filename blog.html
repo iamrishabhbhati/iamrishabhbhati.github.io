@@ -4,77 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Rishabh Bhati</title>
-    <meta name="description"
-        content="Blog posts by Rishabh Bhati — writing about data analysis, SQL, dashboards, and things I learn in data science.">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Blog | Rishabh Bhati</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Background Canvas -->
-    <canvas id="canvas-bg"></canvas>
+    <canvas id="stars-canvas"></canvas>
 
-    <!-- Nav -->
-    <nav class="nav scrolled" id="nav">
-        <div class="container">
-            <a href="index.html" class="nav-logo">rishabh<span>.</span></a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html#about">About</a>
-                <a href="index.html#skills">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="blog.html" class="active">Blog</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span><span></span><span></span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">RB</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#education" class="nav-link">Education</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="#" class="nav-link active">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <main>
-        <div class="container page-header">
-            <span class="section-label">Blog</span>
-            <h1 class="section-heading">Blog</h1>
-            <p class="section-desc">
-                I'll be writing about data analysis, SQL, dashboards, and things I
-                learn along the way. Posts are coming soon.
-            </p>
-        </div>
-
-        <div class="container" style="padding-bottom:100px;">
-            <div class="blog-grid">
-                <div class="empty-state" style="grid-column: 1 / -1;">
-                    <p>✍️ Blog posts coming soon. I'm working on a few right now.</p>
-                </div>
+    <section style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+        <div class="container">
+            <h1>Blog</h1>
+            <div class="bento-card" style="max-width: 600px; margin: 2rem auto;">
+                <i class="fas fa-pen-fancy"
+                    style="font-size: 3rem; color: var(--accent-violet); margin-bottom: 1rem;"></i>
+                <h3>Writings Coming Soon</h3>
+                <p>I am working on some articles about Data Science, SQL optimisations, and Power BI dashboards. Stay
+                    tuned!</p>
+                <a href="index.html" class="contact-btn" style="margin-top: 2rem;">Back to Home</a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <p>&copy; 2026 Rishabh Bhati</p>
-            <div class="footer-socials">
-                <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener"
-                    aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
-                        <rect x="2" y="9" width="4" height="12" />
-                        <circle cx="4" cy="4" r="2" />
-                    </svg>
-                </a>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2026 Rishabh Bhati. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

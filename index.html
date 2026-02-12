@@ -2,293 +2,187 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishabh Bhati — Data Analyst</title>
-  <meta name="description"
-    content="Rishabh Bhati is a Data Analyst who builds dashboards, writes SQL, and turns raw data into stories that make sense.">
-  <meta name="author" content="Rishabh Bhati">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rishabh Bhati — Data Analyst">
-  <meta property="og:description" content="Data Analyst portfolio — projects, blog posts, and everything data.">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishabh Bhati | Data Analyst Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Rishabh Bhati, an aspiring Data Analyst specializing in Excel, SQL, and Power BI. based in Noida.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-  <!-- Background Canvas -->
-  <canvas id="canvas-bg"></canvas>
+    <!-- Falling Stars Canvas -->
+    <canvas id="stars-canvas"></canvas>
 
-  <!-- Nav -->
-  <nav class="nav" id="nav">
-    <div class="container">
-      <a href="index.html" class="nav-logo">rishabh<span>.</span></a>
-      <div class="nav-menu" id="navMenu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="container hero-inner">
-      <div class="hero-badge">
-        <span class="pulse"></span>
-        Open to opportunities
-      </div>
-
-      <h1>Hey, I'm <span class="gradient">Rishabh</span></h1>
-
-      <div class="hero-typing">
-        <span id="typed"></span><span class="cursor"></span>
-      </div>
-
-      <p class="hero-text">
-        I work with data — cleaning it, querying it, visualising it, and trying
-        to find the story hidden inside it. Currently doing my MSc in Data Science
-        and sharing what I learn along the way.
-      </p>
-
-      <div class="hero-cta">
-        <a href="projects.html" class="btn btn-primary">See my projects</a>
-        <a href="#contact" class="btn btn-ghost">Say hello</a>
-      </div>
-    </div>
-
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-indicator"></div>
-    </div>
-  </section>
-
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="container">
-      <span class="section-label">About</span>
-      <h2 class="section-heading reveal">A bit about me</h2>
-
-      <div class="about-grid reveal">
-        <div class="about-photo">
-          <img src="images/profile-pic.png" alt="Rishabh Bhati">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">RB</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="about-content">
-          <h3>Rishabh Bhati</h3>
-          <p>
-            I'm a <strong>Data Analyst</strong> who genuinely likes digging into
-            spreadsheets, writing SQL queries at midnight, and making dashboards
-            that people actually use. I finished my BCA from
-            <strong>G.L. Bajaj Institute of Management</strong> and I'm currently
-            pursuing my <strong>MSc in Data Science</strong> from
-            <strong>Chandigarh University</strong> (online mode).
-          </p>
-          <p>
-            When I'm not working with data, I write about what I learn — SQL tricks,
-            dashboard tips, or just random data things that I find interesting. This
-            website is where I put all of it.
-          </p>
-
-          <div class="edu-section">
-            <h4>Education</h4>
-
-            <div class="edu-grid">
-              <!-- Master's -->
-              <div class="edu-card">
-                <div class="edu-info">
-                  <span class="edu-year">2025 – Present</span>
-                  <h5>MSc Data Science</h5>
-                  <p class="edu-school">Chandigarh University</p>
-                  <p class="edu-desc">Specializing in machine learning, big data analytics, and statistical modeling.
-                  </p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="role">Aspiring Data Analyst</span>
+                    <h1>Hello, I'm <br> <span class="text-gradient">Rishabh Bhati</span></h1>
+                    <p>
+                        Transforming raw data into meaningful insights. Based in Noida, passionate about uncovering
+                        stories hidden within numbers.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="contact-btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                        <a href="#education" class="contact-btn"
+                            style="background: transparent; border-color: var(--card-border);">My Journey</a>
+                    </div>
                 </div>
-              </div>
-
-              <!-- Bachelor's -->
-              <div class="edu-card">
-                <div class="edu-info">
-                  <span class="edu-year">2022 – 2025</span>
-                  <h5>BCA</h5>
-                  <p class="edu-school">G.L. Bajaj Institute of Management</p>
-                  <p class="edu-desc">Foundation in computer science, database management, and software development.</p>
+                <div class="hero-image-wrapper">
+                    <img src="images/profile-pic.png" alt="Rishabh Bhati" class="profile-pic">
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- Skills -->
-  <section class="section" id="skills">
-    <div class="container">
-      <span class="section-label">Skills</span>
-      <h2 class="section-heading reveal">What I work with</h2>
-      <p class="section-desc reveal">
-        The tools I use day-to-day to analyse data and build reports.
-      </p>
-
-      <div class="skills-row reveal">
-        <div class="skill">
-          <span class="skill-icon">
-            <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <title>Microsoft Excel</title>
-              <path
-                d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3Z" />
-            </svg>
-          </span>
-          Excel
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="bento-grid">
+                <div class="bento-card" style="grid-column: span 2;">
+                    <h3>Who am I?</h3>
+                    <p>
+                        I'm Rishabh Bhati from Noida. I recently completed my BCA from GL Bajaj Institute of Management
+                        (2022-2025) and am currently pursuing an MSc in Data Science from Chandigarh University
+                        (Online).
+                    </p>
+                    <p>
+                        My passion lies in data analytics—using tools like Excel, SQL, and Power BI to solve real-world
+                        problems. I'm constantly learning and building my skillset to become a proficient Data Analyst.
+                    </p>
+                </div>
+                <div class="bento-card">
+                    <h3>Focus</h3>
+                    <p>Data Cleaning, Visualization, & Analysis.</p>
+                </div>
+            </div>
         </div>
-        <div class="skill">
-          <span class="skill-icon">
-            <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <title>MySQL</title>
-              <path
-                d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z" />
-            </svg>
-          </span>
-          SQL
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <span class="date">2025 - Present</span>
+                    <h3>MSc in Data Science</h3>
+                    <p>Chandigarh University (Online)</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Specializing in advanced data analytics and
+                        machine learning foundations.</p>
+                </div>
+                <div class="bento-card">
+                    <span class="date">2022 - 2025</span>
+                    <h3>BCA (Bachelor of Computer Applications)</h3>
+                    <p>GL Bajaj Institute of Management</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Built a strong foundation in computer science and
+                        programming.</p>
+                </div>
+            </div>
         </div>
-        <div class="skill">
-          <span class="skill-icon">
-            <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <title>Power BI</title>
-              <path
-                d="M10 12a1 1 0 0 1 1 1v11H4a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h6Zm-2-.5V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17h-4.5V13a1.5 1.5 0 0 0-1.5-1.5H8Zm5-6V1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-3.5V7A1.5 1.5 0 0 0 15 5.5h-2Z" />
-            </svg>
-          </span>
-          Power BI
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Tools</h2>
+            <div class="skills-grid">
+                <!-- Image based skills -->
+                <div class="skill-card">
+                    <img src="images/excel.png" alt="Excel" class="skill-icon">
+                    <span class="skill-name">Excel</span>
+                </div>
+                <div class="skill-card">
+                    <img src="images/sql.png" alt="SQL" class="skill-icon">
+                    <span class="skill-name">SQL</span>
+                </div>
+                <div class="skill-card">
+                    <img src="images/powerbi.png" alt="Power BI" class="skill-icon">
+                    <span class="skill-name">Power BI</span>
+                </div>
+
+                <!-- Text based skills for completeness -->
+                <div class="skill-card">
+                    <i class="fas fa-code text-skill"></i>
+                    <span class="skill-name">Python (Basics)</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-bar text-skill"></i>
+                    <span class="skill-name">Data Viz</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- Projects -->
-  <section class="section" id="projects">
-    <div class="container">
-      <span class="section-label">Projects</span>
-      <h2 class="section-heading reveal">Things I've built</h2>
-      <p class="section-desc reveal">
-        I'm currently working on a few data projects — dashboards, SQL analyses,
-        and a couple of EDA notebooks. I'll be adding them here as they're ready.
-      </p>
-
-      <div class="projects-grid reveal">
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <p>🚧 Projects are on the way. Check back soon or head over to my
-            <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener">GitHub</a>
-            in the meantime.
-          </p>
+    <!-- Blog Section (Placeholder) -->
+    <section id="blog">
+        <div class="container">
+            <h2>Blog</h2>
+            <div class="blog-empty-state">
+                <h3>Insights Coming Soon...</h3>
+                <p>I haven't written anything yet, but I plan to share my learning journey and projects here.</p>
+                <div
+                    style="margin-top: 2rem; width: 50px; height: 1px; background: var(--accent-blue); display: inline-block;">
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div style="text-align:center; margin-top:40px;">
-        <a href="projects.html" class="btn btn-ghost">All projects →</a>
-      </div>
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm currently looking for Data Analyst roles. Feel free to reach out!</p>
 
+            <div class="contact-links">
+                <a href="mailto:rishabhbhati.in@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener noreferrer"
+                    class="contact-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener noreferrer"
+                    class="contact-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
 
-  <!-- Blog Preview -->
-  <section class="section" id="blog">
-    <div class="container">
-      <span class="section-label">Blog</span>
-      <h2 class="section-heading reveal">Blog</h2>
-      <p class="section-desc reveal">
-        I'll be sharing articles, walkthroughs, and things I learn about data here.
-        Posts are on the way.
-      </p>
-
-      <div class="blog-grid reveal">
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <p>✍️ Blog posts coming soon. I'm working on a few right now.</p>
+            <footer>
+                <p style="margin-top: 4rem;">&copy; 2026 Rishabh Bhati. All rights reserved.</p>
+            </footer>
         </div>
-      </div>
+    </section>
 
-      <div style="text-align:center; margin-top:40px;">
-        <a href="blog.html" class="btn btn-ghost">All posts →</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container">
-      <span class="section-label">Contact</span>
-      <h2 class="section-heading reveal">Let's connect</h2>
-      <p class="section-desc reveal">
-        Want to talk about data, collaborate on something, or just say hi?
-        I'd love to hear from you.
-      </p>
-
-      <div class="contact-links reveal">
-        <a href="mailto:rishabhbhati.in@gmail.com" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
-          </svg>
-          rishabhbhati.in@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-          </svg>
-          GitHub
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Rishabh Bhati</p>
-      <div class="footer-socials">
-        <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
