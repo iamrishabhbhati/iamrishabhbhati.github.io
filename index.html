@@ -4,68 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Rishabh Bhati — Aspiring Data Analyst from Noida. Skilled in Excel, SQL, and Power BI. Explore my portfolio, skills, and blog.">
-    <meta name="keywords" content="Rishabh Bhati, Data Analyst, Portfolio, SQL, Excel, Power BI, Noida">
+    <meta name="description" content="Rishabh Bhati — Data Analyst from Noida. Excel, SQL, Power BI.">
     <meta name="author" content="Rishabh Bhati">
-    <title>Rishabh Bhati — Data Analyst</title>
+    <title>Rishabh Bhati</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- Devicon CDN for skill icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- falling stars canvas sits behind everything -->
     <canvas id="starfield"></canvas>
-
-    <!-- square grid overlay -->
     <div class="grid-overlay" aria-hidden="true"></div>
 
-    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+    <!-- Navigation -->
     <nav id="navbar">
         <a href="#hero" class="nav-logo">RB</a>
-
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </button>
-
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <!-- Hero -->
     <section id="hero">
         <div class="hero-content">
             <div class="hero-photo-wrapper">
-                <img src="images/profile-pic.png" alt="Rishabh Bhati" class="hero-photo" width="220" height="220">
+                <img src="images/profile-pic.png" alt="Rishabh Bhati" class="hero-photo">
             </div>
-
             <p class="hero-greeting">Hey, I'm</p>
             <h1 class="hero-name">Rishabh Bhati</h1>
-            <p class="hero-tagline">Aspiring Data Analyst &nbsp;·&nbsp; Noida, India</p>
-            <p class="hero-subtitle">
-                I turn raw data into clear stories. Currently pursuing my MSc in Data Science
-                while sharpening my skills in SQL, Excel, and Power BI.
-            </p>
+            <p class="hero-tagline">Data Analyst &nbsp;·&nbsp; Noida, India</p>
 
             <div class="hero-cta">
                 <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener"
-                    class="btn btn-primary">
+                    class="btn btn-outline">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -90,222 +74,125 @@
         </div>
     </section>
 
-    <!-- ═══════════════════ ABOUT ═══════════════════ -->
+    <!-- About -->
     <section id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        Hi there! I'm Rishabh — a curious mind based in <strong>Noida, India</strong> with a
-                        genuine love for working with data. I recently completed my <strong>BCA</strong> from
-                        GL Bajaj Institute of Management and I'm now pursuing my <strong>MSc in Data Science</strong>
-                        from Chandigarh University (online).
-                    </p>
-                    <p>
-                        I spend most of my time inside spreadsheets, writing SQL queries, and building
-                        dashboards in Power BI. There's something satisfying about taking messy data and
-                        turning it into something that actually makes sense. That's the kind of work I want to do
-                        every day — as a <strong>Data Analyst</strong>.
-                    </p>
-                    <p>
-                        Outside of data, I enjoy writing. I'm starting this space to share what I learn along the
-                        way — articles, breakdowns, and notes that might help someone on the same path.
-                    </p>
-                </div>
-                <div class="about-details">
-                    <div class="detail-card">
-                        <span class="detail-label">Location</span>
-                        <span class="detail-value">Noida, India</span>
-                    </div>
-                    <div class="detail-card">
-                        <span class="detail-label">Focus</span>
-                        <span class="detail-value">Data Analytics</span>
-                    </div>
-                    <div class="detail-card">
-                        <span class="detail-label">Currently</span>
-                        <span class="detail-value">MSc Data Science</span>
-                    </div>
-                    <div class="detail-card">
-                        <span class="detail-label">Looking For</span>
-                        <span class="detail-value">Data Analyst Roles</span>
-                    </div>
-                </div>
+            <div class="about-content">
+                <p>I'm Rishabh, from Noida. I completed my BCA from GL Bajaj Institute of Management and I'm currently
+                    doing my MSc in Data Science from Chandigarh University (online).</p>
+                <p>I work with Excel, SQL, and Power BI. I like cleaning up messy data, writing queries, and building
+                    dashboards that actually make sense. That's pretty much what I want to do full-time.</p>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ SKILLS ═══════════════════ -->
+    <!-- Skills -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills &amp; Tools</h2>
-            <p class="section-subtitle">The tools and technologies I work with on a daily basis.</p>
-
+            <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                <!-- Excel -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#217346">
-                            <path
-                                d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7a1 1 0 01-.7.3H7q-.41 0-.7-.3a1 1 0 01-.3-.7V18H1q-.41 0-.7-.3a1 1 0 01-.3-.7V7q0-.41.3-.7A1 1 0 011 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3z" />
-                        </svg>
-                    </div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg"
+                        alt="Excel" class="skill-icon-img">
                     <h3 class="skill-name">Excel</h3>
-                    <p class="skill-desc">Data cleaning, pivot tables, VLOOKUP, dashboards</p>
                 </div>
-
-                <!-- SQL -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#e38d13">
-                            <path
-                                d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.49 8 3s-3.58 3-8 3-8-1.49-8-3 3.58-3 8-3zM4 18V15.87c1.68 1.09 4.62 1.82 8 1.82s6.32-.73 8-1.82V18c0 1.38-3.58 2.5-8 2.5S4 19.38 4 18zm16-4.13c-1.68 1.09-4.62 1.82-8 1.82s-6.32-.73-8-1.82V12c0 1.16 2.64 2.26 6.29 2.47h.03c.56.02 1.12.03 1.68.03 4.42 0 8-1.12 8-2.5v1.87zM4 9.87V8c0 1.38 3.58 2.5 8 2.5S20 9.38 20 8v1.87c-1.68 1.09-4.62 1.82-8 1.82s-6.32-.73-8-1.82z" />
-                        </svg>
-                    </div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                        alt="SQL" class="skill-icon-img">
                     <h3 class="skill-name">SQL</h3>
-                    <p class="skill-desc">Queries, joins, subqueries, database management</p>
                 </div>
-
-                <!-- Power BI -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#f2c811">
-                            <path
-                                d="M10.312 1.969A1.27 1.27 0 0 0 9.073 3.24v17.52a1.27 1.27 0 0 0 1.24 1.271h2.51a1.27 1.27 0 0 0 1.27-1.27V3.24a1.27 1.27 0 0 0-1.27-1.271zm-4.93 4.16a1.27 1.27 0 0 0-1.24 1.271v13.36a1.27 1.27 0 0 0 1.24 1.271h2.51A1.27 1.27 0 0 0 9.163 20.76V7.4a1.27 1.27 0 0 0-1.27-1.271zm9.86 0a1.27 1.27 0 0 0-1.24 1.271v13.36a1.27 1.27 0 0 0 1.24 1.271h2.51a1.27 1.27 0 0 0 1.27-1.27V7.4a1.27 1.27 0 0 0-1.27-1.271zm4.93 4.17A1.27 1.27 0 0 0 18.932 11.57v9.19a1.27 1.27 0 0 0 1.24 1.271h2.51a1.27 1.27 0 0 0 1.27-1.27V11.57a1.27 1.27 0 0 0-1.27-1.271z" />
-                        </svg>
-                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"
+                        class="skill-icon-img">
                     <h3 class="skill-name">Power BI</h3>
-                    <p class="skill-desc">Interactive dashboards, DAX, data modeling</p>
                 </div>
-
-                <!-- Python -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#3776AB">
-                            <path
-                                d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.35.12-.33.2-.28.28-.21.36-.16.43-.1.5-.06.57-.04h5.02l.38.04zm-2.28 1.83a.83.83 0 00-.88.83c0 .47.37.85.83.88a.83.83 0 00.88-.83.86.86 0 00-.83-.88zM6.18 12.23l-.04.31.02.35.09.36.17.32.25.27.33.22.41.17.49.11.57.06.64.02h7.98v.84h-5.38l.93.01h.34l.33-.02.32-.05.3-.08.27-.12.24-.16.2-.21.16-.26.11-.31.07-.36.03-.41v-2.95h-7.18l-.21.01-.17.04-.14.08-.1.12-.07.17-.04.23-.01.3z" />
-                        </svg>
-                    </div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                        alt="Python" class="skill-icon-img">
                     <h3 class="skill-name">Python</h3>
-                    <p class="skill-desc">Pandas, NumPy, data wrangling basics</p>
                 </div>
-
-                <!-- Statistics -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#8e44ad">
-                            <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 12h2v5H7v-5zm4-3h2v8h-2V9zm4-2h2v10h-2V7z" />
-                        </svg>
-                    </div>
-                    <h3 class="skill-name">Statistics</h3>
-                    <p class="skill-desc">Descriptive stats, probability, hypothesis testing</p>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
+                        alt="Google Sheets" class="skill-icon-img">
+                    <h3 class="skill-name">Google Sheets</h3>
                 </div>
-
-                <!-- Data Visualization -->
                 <div class="skill-card" data-reveal>
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" width="42" height="42" fill="#00bcd4">
-                            <path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z" />
-                        </svg>
-                    </div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg"
+                        alt="Data Visualization" class="skill-icon-img">
                     <h3 class="skill-name">Data Visualization</h3>
-                    <p class="skill-desc">Charts, graphs, storytelling with data</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ EDUCATION ═══════════════════ -->
+    <!-- Education -->
     <section id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-
             <div class="timeline">
-                <!-- MSc -->
                 <div class="timeline-item" data-reveal>
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">2025 — Present</span>
                         <h3 class="timeline-title">MSc in Data Science</h3>
                         <p class="timeline-place">Chandigarh University (Online)</p>
-                        <p class="timeline-desc">
-                            Deepening my understanding of machine learning, statistical modeling,
-                            and advanced analytics through a dedicated master's programme.
-                        </p>
                     </div>
                 </div>
-
-                <!-- BCA -->
                 <div class="timeline-item" data-reveal>
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">2022 — 2025</span>
                         <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
                         <p class="timeline-place">GL Bajaj Institute of Management, Greater Noida</p>
-                        <p class="timeline-desc">
-                            Built a strong foundation in programming, databases, and computer science
-                            fundamentals. This is where my interest in data really took off.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ BLOG ═══════════════════ -->
-    <section id="blog">
+    <!-- Projects -->
+    <section id="projects">
         <div class="container">
-            <h2 class="section-title">Blog</h2>
-            <p class="section-subtitle">Thoughts, learnings, and write-ups — coming soon.</p>
-
-            <div class="blog-empty">
-                <div class="blog-empty-icon">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-empty">
+                <div class="projects-empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 20h9" />
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
                     </svg>
                 </div>
-                <h3 class="blog-empty-title">Nothing here yet</h3>
-                <p class="blog-empty-text">
-                    I'm working on my first few articles. Stay tuned — I'll be sharing notes on
-                    SQL, Excel tips, data analysis breakdowns, and things I learn along the way.
-                </p>
+                <h3 class="projects-empty-title">Coming Soon</h3>
+                <p class="projects-empty-text">Projects will be added here.</p>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <!-- Contact -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="section-subtitle">
-                I'm actively looking for Data Analyst opportunities. Feel free to reach out!
-            </p>
-
+            <h2 class="section-title">Contact</h2>
             <div class="contact-links">
                 <a href="mailto:rishabhbhati.in@gmail.com" class="contact-card" data-reveal>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
                     </svg>
                     <span class="contact-label">Email</span>
                     <span class="contact-value">rishabhbhati.in@gmail.com</span>
                 </a>
-
                 <a href="https://www.linkedin.com/in/rishabhbhati7100" target="_blank" rel="noopener"
                     class="contact-card" data-reveal>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                     <span class="contact-label">LinkedIn</span>
                     <span class="contact-value">rishabhbhati7100</span>
                 </a>
-
                 <a href="https://github.com/iamrishabhbhati" target="_blank" rel="noopener" class="contact-card"
                     data-reveal>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
@@ -316,10 +203,10 @@
         </div>
     </section>
 
-    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <!-- Footer -->
     <footer id="footer">
         <div class="container">
-            <p>&copy; 2025 Rishabh Bhati. Built with care.</p>
+            <p>&copy; 2025 Rishabh Bhati</p>
         </div>
     </footer>
 
